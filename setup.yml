@@ -2,30 +2,30 @@
 - hosts: test
   become: yes
   tasks:
-#    - name: Download Long Term Jenkins release
-#      apt_key:
-#        url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
-#        state: present
-#      become: yes
-#
-#    - name: Import jenkins key from url
-#      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
-#      become: yes
-#
-#    - name: update apt cache
-#      apt:
-#        update_cache: yes
-#        state: latest
-#
-#    - name: Install java
-#      apt:
-#        name: openjdk-11-jdk
-#        state: present
-#
-#    - name: Install jenkins
-#      apt:
-#        name: jenkins
-#        state: latest
+    - name: Download Long Term Jenkins release
+      apt_key:
+        url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+        state: present
+      become: yes
+
+    - name: Import jenkins key from url
+      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+      become: yes
+
+    - name: update apt cache
+      apt:
+        update_cache: yes
+        state: latest
+
+    - name: Install java
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Install jenkins
+      apt:
+        name: jenkins
+        state: latest
 
     - name: daemon-reload to pick up config changes
       ansible.builtin.systemd:
